@@ -12,7 +12,7 @@ import { Course } from "../model/course";
 export class CoursesCardListComponent implements OnInit {
   @Input() courses: Course[] = [];
 
-  @Output() private coursesChanged = new EventEmitter();
+  // @Output() private coursesChanged = new EventEmitter();
 
   constructor(private dialog: MatDialog) {}
 
@@ -32,8 +32,8 @@ export class CoursesCardListComponent implements OnInit {
     dialogRef
       .afterClosed()
       .pipe(
-        filter((val) => !!val),
-        tap(() => this.coursesChanged.emit())
+        filter((val) => !!val)
+        // tap(() => this.coursesChanged.emit())
       )
       .subscribe();
   }
